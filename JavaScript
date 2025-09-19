@@ -1,0 +1,124 @@
+import React, { useState } from 'react';
+
+const GameRuleSimplifier = () => {
+  const [selectedGame, setSelectedGame] = useState('');
+  
+  // Hardcoded data for 3 popular games with simplified rules
+  const gamesData = {
+    'catan': {
+      name: 'Catan',
+      image: 'https://placeholder-image-service.onrender.com/image/300x200?prompt=Catan%20board%20game%20with%20hexagonal%20tiles%2C%20roads%2C%20settlements%20and%20resource%20cards&id=catan-123',
+      rules: [
+        'Collect resources based on dice rolls and tile placements',
+        'Build roads, settlements, and cities to expand your territory',
+        'Trade resources with other players to get what you need',
+        'Earn victory points for settlements, cities, and special cards',
+        'First player to reach 10 victory points wins the game',
+        'Use development cards for special advantages and bonuses'
+      ]
+    },
+    'carcassonne': {
+      name: 'Carcassonne',
+      image: 'https://placeholder-image-service.onrender.com/image/300x200?prompt=Carcassonne%20board%20game%20with%20square%20tiles%20featuring%20roads%2C%20cities%2C%20and%20fields&id=carcassonne-456',
+      rules: [
+        'Draw and place tiles to build the landscape of Carcassonne',
+        'Place followers as knights, farmers, thieves, or monks on features',
+        'Score points by completing cities, roads, and monasteries',
+        'Farmers score at the end of the game based on connected fields',
+        'The player with the most followers on a feature scores its points',
+        'Game ends when all tiles are placed; highest score wins'
+      ]
+    },
+    'ticket-to-ride': {
+      name: 'Ticket to Ride',
+      image: 'https://placeholder-image-service.onrender.com/image/300x200?prompt=Ticket%20to%20Ride%20board%20game%20with%20colorful%20train%20routes%20on%20a%20map&id=ttr-789',
+      rules: [
+        'Collect train cards of different colors to claim railway routes',
+        'Complete destination tickets to connect cities across the map',
+        'Longer routes give more points when claimed',
+        'Draw new cards or claim routes on your turn',
+        'Earn points for completed routes and destination tickets',
+        'Lose points for incomplete destination tickets at game end'
+      ]
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-6">
+      <div className="max-w-4xl mx-auto">
+        {/* Header */}
+        <header className="text-center mb-10">
+          <h1 className="text-4xl font-bold text-gray-800 mb-3">GameRuleSimplifier</h1>
+          <p className="text-lg text-gray-600">
+            Stop struggling with complex rulebooks. Get simple, digestible game rules in seconds.
+          </p>
+        </header>
+        
+        {/* Game Selection */}
+        <div className="mb-12 bg-white rounded-2xl shadow-lg p-6">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-4">Select a Game</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {Object.entries(gamesData).map(([key, game]) => (
+              <div
+                key={key}
+                onClick={() => setSelectedGame(key)}
+                className={`cursor-pointer rounded-xl p-4 border-2 transition-all duration-200 ${
+                  selectedGame === key
+                    ? 'border-blue-500 bg-blue-50'
+                    : 'border-gray-200 hover:border-blue-300 hover:bg-blue-25'
+                }`}
+              >
+                <img
+                  src={game.image}
+                  alt={`Box art for ${game.name} board game`}
+                  className="w-full h-32 object-cover rounded-lg mb-3"
+                />
+                <h3 className="text-lg font-medium text-center text-gray-800">{game.name}</h3>
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        {/* Rules Display */}
+        {selectedGame && (
+          <div className="bg-white rounded-2xl shadow-lg p-6 mb-8">
+            <div className="flex items-center mb-6">
+              <img
+                src={gamesData[selectedGame].image}
+                alt={`Box art for ${gamesData[selectedGame].name} board game`}
+                className="w-20 h-20 object-cover rounded-lg mr-4"
+              />
+              <h2 className="text-2xl font-bold text-gray-800">
+                {gamesData[selectedGame].name} - Simple Rules
+              </h2>
+            </div>
+            
+            <div className="space-y-4">
+              {gamesData[selectedGame].rules.map((rule, index) => (
+                <div key={index} className="flex items-start">
+                  <div className="bg-blue-100 text-blue-600 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-3 mt-1">
+                    {index + 1}
+                  </div>
+                  <p className="text-gray-700 text-lg">{rule}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+        
+        {/* Call to Action */}
+        <div className="text-center bg-white rounded-2xl shadow-lg p-8">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4">Ready to Play?</h2>
+          <p className="text-gray-600 mb-6">
+            Now that you know the basics, gather your friends and start playing!
+          </p>
+          <button className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors">
+            Save These Rules
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default GameRuleSimplifier;
