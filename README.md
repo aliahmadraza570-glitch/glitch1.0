@@ -1,25 +1,33 @@
-Problem
-Learning new board games from long rulebooks takes too much time.
+Board Game Rules Explainer
 
-Solution
-This app summarizes rules in simple, easy-to-digest steps, so you can start playing faster.
+🚀 Problem
 
-MVP Scope
-	•	Hardcoded rules for 3 popular board games (Chess, Monopoly, and Catan).
-	•	Each game has 5–6 key points.
-	•	Works fully offline.
+Board games are fun, but learning rules from long manuals is painful.
+	•	Rulebooks are lengthy, confusing, and take too much time.
+	•	Players often give up or waste the first game just figuring things out.
 
 ⸻
 
-🚀 Features
-	•	📚 Summarized rules for quick learning.
-	•	🔍 Search bar to quickly find a game.
-	•	🎨 Clean UI with cards, colors, and smooth animations.
-	•	📱 Works on Android & iOS using Expo.
+💡 Solution
+
+Board Game Rules Explainer is a mobile app that summarizes rules into 5–6 easy points.
+	•	Clear, bite-sized instructions.
+	•	Works offline — perfect for quick reference at the game table.
+	•	Minimal UI, built for speed and simplicity.
+
+⸻
+
+🎯 Key Features
+
+✅ Hardcoded rules for 3 popular games (Chess, Monopoly, Catan).
+✅ Each game explained in 5–6 quick steps.
+✅ 🔍 Search bar to instantly find a game.
+✅ 🎨 Simple, modern UI with smooth animations.
+✅ 📱 Works on iOS & Android via Expo.
 
 ⸻
 
 🛠️ Tech Stack
-	•	React Native
-	•	Expo
-	•	JavaScript (ES6+)
+	•	Frontend: React Native + Expo
+	•	Language: JavaScript (ES6+)
+	•	Platform: Cross-platform (Android & iOS)
